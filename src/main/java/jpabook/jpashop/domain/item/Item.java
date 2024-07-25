@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtpye")
+@Setter
 @Getter
 public abstract class Item {
 
