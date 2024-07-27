@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
@@ -56,8 +57,5 @@ public class MemberServiceTest {
         // then
         Assertions.fail("예외가 발생해야한다.");
     }
-
-
-
 
 }
