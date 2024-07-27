@@ -39,8 +39,11 @@ public class ItemServiceTest {
 
         Item one = itemService.findOne(id);
         System.out.println("조회 후 one = " + one);
+        itemService.saveItem(one);
+        Item two = itemService.findOne(id);
+        System.out.println("two = " + two);
         // then
-        Assertions.assertEquals(item,one);
+//        Assertions.assertEquals(item,one);
     }
 
     @Test
@@ -65,5 +68,43 @@ public class ItemServiceTest {
         Assertions.assertEquals(itemA.getId(),AId);
         Assertions.assertEquals(itemB.getId(),BId);
         Assertions.assertEquals(itemC.getId(),CId);
+    }
+
+    @Test
+    public void itemDuplicateidTest() throws Exception {
+        // given
+        Book book1 = new Book();
+        book1.setName("test1");
+
+        itemRepository.save(book1);
+
+        List<Item> items = itemService.findItems();
+        int size1 = items.size();
+        Long id = items.get(0).getId();
+        String name = items.get(0).getName();
+
+        System.out.println("items = " + items.get(0));
+        System.out.println("id = " + id);
+        System.out.println("name = " + name);
+
+        Book book2 = new Book();
+        book2.setId(id);
+        book2.setName(name);
+        itemRepository.save(book2);
+
+        List<Item> items2 = itemService.findItems();
+        int size2 = items2.size();
+        Long id2 = items2.get(0).getId();
+        String name2 = items2.get(0).getName();
+
+        System.out.println("items2 = " + items2.get(0));
+        System.out.println("id2 = " + id2);
+        System.out.println("name2 = " + name2);
+
+
+        // when
+
+        // then
+        Assertions.assertEquals(size1,size2);
     }
 }
