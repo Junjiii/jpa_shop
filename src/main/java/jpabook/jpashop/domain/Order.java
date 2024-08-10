@@ -3,6 +3,7 @@ package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "ORDERS")
 @Getter
+@RequiredArgsConstructor
 public class Order {
 
     @Id
