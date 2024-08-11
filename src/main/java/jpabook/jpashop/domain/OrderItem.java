@@ -1,12 +1,13 @@
 package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
+import jpabook.jpashop.domain.item.Item;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
-@RequiredArgsConstructor
+@Setter
 public class OrderItem {
 
     @Id
@@ -22,7 +23,7 @@ public class OrderItem {
     @JoinColumn(name = "order_id")
     private Order order;
 
-    private int orderPrice;
+    private int orderPrice; // 주문가격
 
-    private int count;
+    private int count; // 주문수량
 }

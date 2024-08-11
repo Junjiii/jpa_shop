@@ -10,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Getter
-@RequiredArgsConstructor
 public class Member {
 
     @Id
@@ -26,6 +25,9 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
+
+
+
 
 
 
