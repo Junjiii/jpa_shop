@@ -25,7 +25,7 @@ public class OrderRepository {
     }
 
     // 동적 쿼리 : If 문
-    public List<Order> findAll(OrderSearch orderSearch) {
+    public List<Order> findAllByString(OrderSearch orderSearch) {
         String jpql = "select o from Order o join o.member m";
         boolean isFirstCondition = true;
 
